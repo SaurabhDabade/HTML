@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <input type="button" ="ok"/>
+    <style>
+        pre input{
+            background-color: chartreuse;
+        } 
+    </style>
+    <script>
+        function handler1()
+        {
+            let cb = document.getElementById("c1")
+            // console.log(cb.checked)
+            if(cb.checked){
+            document.getElementById("i1").readOnly=true
+            }
+            else
+            {
+                document.getElementById("i1").readOnly=false
+            }
+        }
+    </script>
+</head>
+<body>
+   <pre>
+   <input type="text"  id="i1" />
+   <label for="c1" >Click To make TF readonly : </label>  <input type="checkbox"  id="c1" onchange="handler1()" />
+   </pre>
+   <input type="text" value="this is outside pre tag"  />
+</body>
+</html>

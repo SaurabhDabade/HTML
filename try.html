@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script>
+        function f1(){
+            let element = document.getElementById("d1")
+            element.innerText = "It is good to practice code"
+        }
+
+        function f2()
+        {
+            let e = document.getElementById("d1")
+            e.innerText = ""
+        }
+
+        function f3()
+        {
+            let e = document.getElementById("d1")
+            e.innerHTML= "<b>Its good to be bold </b>"
+        }
+       </script>
+    </head>
+    <body>
+        <div id="d1" > </div>   
+        <button onClick="f1()">show-div-content </button>
+        <button onClick="f2()" > clear </button>
+        <button onClick="f3()" > bold </button>
+    </body>
+</html>
