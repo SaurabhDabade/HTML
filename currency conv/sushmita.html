@@ -1,0 +1,79 @@
+<html>
+    <head>
+      
+        <p>
+            <marquee><h1>Currency Convertor</h1></marquee>
+</p>
+
+<script>
+    
+   function altamesh()
+    {
+        var p = document.getElementById("t1").value
+        let st=document.getElementById("p1").value
+        let sp=document.getElementById("p2").value
+        document.getElementById("y").innerText = `${p}`
+        console.log(p)
+       
+        if(st="₹" ){
+            if(st=="₹" && sp=="₹")
+            document.getElementById("y").innerText = `${p}`
+            else if(st=="₹" && sp=="₤")
+            document.getElementById("y").innerText = `${p/100}`
+            else if(st=="₹" && sp=="$")
+            document.getElementById("y").innerText = `${p/80}`
+        
+    }
+    else if(st="₤" ){
+            if(st=="₤" && sp=="₹")
+            document.getElementById("y").innerText = `${p*100}`
+            else if(st=="₤" && sp=="₤")
+            document.getElementById("y").innerText = `${p}`
+            else if(st=="₤" && sp=="$")
+            document.getElementById("y").innerText = `${p/1.25}`
+        
+    }
+    else if(st="$" ){
+        
+            if(st=="$" && sp=="₹")
+            document.getElementById("y").innerText = `${p*80
+            }`
+            else if(st=="$" && sp=="₤")
+            document.getElementById("y").innerText = `${p*1.25}`
+            else if(st=="$" && sp=="$")
+            document.getElementById("y").innerText = `${p}`
+        
+    }
+    
+}
+</script>
+</head>
+<body>
+  <div>
+    <pre a>
+<label>Currency<input type="number" placeholder="enter number value" id="t1"></label>
+<select id="p1">
+    <option> </option>
+<option>₹</option>
+<option>₤</option>
+<option>$</option>
+
+</select>
+<b>Converts To:</b>
+
+<select id="p2">
+    <option> </option>
+    <option>₹</option>
+    <option>₤</option>
+    <option>$</option>
+    
+    </select>
+
+</pre>
+<input type="button" value="Convert" onclick="altamesh()"/>
+<p>OUTPUT</p>
+<p id="y"></p>
+</div>
+
+</body>
+</html>
