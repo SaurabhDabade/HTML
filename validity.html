@@ -1,0 +1,71 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js">
+</script>
+<script>
+    let flag1=false, flag2=false, e1=false, e2=false
+    function handler() {
+        
+        let n = $("#i1").val()
+        let email = $("#e1").val().toLowerCase()
+        let add = $("#t1").val()
+        let date = new Date($("#d1").val())
+        let olddt = parseInt((date / 1000 * 60 * 60 * 24 * 365))
+        let cur = new Date()
+        let age = parseInt(cur - olddt) / ((1000 * 60 * 60 * 24 * 365))
+       
+        // for name check
+        if (n.trim() == "" || n.length < 3 || isNaN(n)) {
+            flag1 = false
+            alert("Please enter valid number and avoid spaces")
+
+        } else {
+            flag1 = true;
+        }
+        // for age
+        if (age < 18 || age > 65 || isNaN(age)) {
+
+            alert("Age must be between 18 and 65")
+            flag2 = false;
+
+        } else {
+            flag2 = true;
+        }
+        // email verification
+        if (email.trim() == "") {
+
+            alert("Please enter email first")
+            e1 = false
+
+        } else {
+            for (let i = 0; i < email.length; i++) {
+                if (email.charAt(i) == "@" && (email.charAt(email.length - 3) == "." || email.charAt(email.length - 4)) == ".") {
+                    e1 = true;
+                    break;
+                }
+                e1 = false
+            }
+            if (e1 == false) {
+                alert("Enter valid email")
+            }
+        }
+        //for address 
+        if (add.trim() == "" || (add.match("Pune") == null)) {
+            e2 = false;
+            alert("Region pune not found or Enter valid address")
+
+        } else {
+            e2 = true;
+        }
+
+        return flag1 && flag2 && e1 && e2
+    }
+</script>
+
+<body>
+    <form onsubmit="return handler()" action="./thankyou.html">
+        Name :<input type="text" id="i1" /><br>
+        Dob :<input type="date" id="d1" /><br>
+        Email :<input type="text" id="e1" /><br>
+        Address :<textarea id="t1"></textarea><br>
+        <input type="submit" value="Submit"><br>
+    </form>
+</body>

@@ -1,0 +1,51 @@
+
+<html>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js">
+</script>
+<script>
+
+        $().ready(()=>{
+            $("#b1").click(()=>{
+            let i=$("#i1").val()
+            $("#p1").html(i)
+            $("#p2").html(`<b>${i}</b>`)
+            $("#p3").html(`<u>${i}</u>`)
+            // hiding on click
+            $("#p2").click(()=>{
+                $("#p2").hide(3000)
+            })
+            $("#p1").click(()=>{
+                $("#p1").hide(3000)
+            })
+            $("#p3").click(()=>{
+                $("#p3").hide(3000)
+            })
+            })
+            // showing on click
+            $("#b1").click(()=>{
+                $("#p2").show(3000)
+            })
+            
+            $("#b1").click(()=>{
+                $("#p1").show(3000)
+            })
+            
+            $("#b1").click(()=>{
+                $("#p3").show(3000)
+            })
+
+        })
+
+</script>
+<body>
+    <div>
+        <input type = "text" id="i1"/>
+        <button id="b1" >Click</button>
+        <div id=>
+        <p id ="p1"></p>
+        <p id="p2"></p>
+        <p id="p3"></p>
+    </div>
+    </div>
+</body>
+</html>

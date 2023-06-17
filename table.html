@@ -1,13 +1,40 @@
 
 
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js">
+</script>
 
-<table border='1'>
-       <thead><tr><td>S.no</td><td>name</td><td>Passing Year</td><td>Percentage</td></tr></thead>
+<script>
+    $().ready(()=>{
+        $("#b1").click(()=>{
+            let n=$("#i1").val()
+            let f=$("#i2").val()
+            let t=$("#i3").val()
+            if(f==0){
+            }else
+            {
+                $("#t1").text("")
+                for(let i=f;i<=t;i++){
+                    $("#t1").append(`<tr><td>${n} * ${i}</td><td>${n*i}</td></tr>`)
+                }
+            }
+        })
+    })
 
-       <tbody><tr><td>1</td><td>Kailas</td><td>2019</td><td>88.20</td></tr></tbody>
-       <tbody><tr><td>1</td><td>Mayuri</td><td>2021</td><td>65</td></tr></tbody>
-       <tbody><tr><td>1</td><td>Mayrika</td><td>2020</td><td>Journey of life</td></tr></tbody>
+
+</script>
+<body>
+
+    <div>
+        <form>
+            Table of:<input type="number" id="i1" />
+            from:<input type="number" id="i2" />
+            to:<input type="number" id="i3" /><br><br>
+            <input type="reset" value="clear" /> 
+     </form>
        
-       <img src= "C:\Users\IET\Pictures\Saved Pictures./war.jpg" width="200" height="200"></img>
-
-</table>
+        <button id="b1">Show Table</button>
+        <table id="t1" border=1>
+            
+        </table>
+    </div>
+</body>

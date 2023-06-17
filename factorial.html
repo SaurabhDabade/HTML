@@ -1,0 +1,21 @@
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js">
+
+</script>
+<script>
+    $().ready(()=>{
+        $("button").click(()=>{
+            let z=$("#i1").val()
+            let fact=1;
+            for(let i=1;i<=z;i++){
+                fact=fact*i
+            }
+            $("#p1").html(fact)
+        })
+    })
+
+</script>
+<body>
+    <input type ="text" id="i1"/>
+    <button>Click</button>
+    <p id="p1"></p>
+</body>

@@ -1,0 +1,35 @@
+
+
+<script>
+function handler(choice)
+    {   
+        let x=parseInt(document.getElementById("i1").value)
+        let ans
+        console.log(x)
+        if(isNaN(x)){
+            document.getElementById("p1").innerText="Enter number first"
+            return
+        }
+        else{
+         if(choice=="sq"){
+            console.log(document.getElementById("s1").value)
+            document.getElementById("p1").innerHTML=`<h1>${x*x}</h1>`;
+        }
+         else if(choice=="cu"){
+            console.log(document.getElementById("s2").value)
+            document.getElementById("p1").innerHTML=`<h1>${x*x*x}</h1>`;
+        }
+    }
+    }   
+
+</script>
+
+
+
+
+<div>
+        Enter value :<input type="text"  id="i1"/><br>
+        Square<input type="radio" name="Sqaure" value="sq"  onchange="handler('sq')" id="s1"/><br>
+        Cube<input type="radio" name="Sqaure" value="cu"  onchange="handler('cu')" id ="s2"/><br>
+        <b><p id="p1"></p></b>
+    </div>
