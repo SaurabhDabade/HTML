@@ -1,0 +1,72 @@
+< <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Registration Form</title>
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+                <span id="dobError" class="error"></span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div>
+                <button type="button" onclick="clearFields()">Clear</button>
+                <button type="button" onclick="submitForm()">OK</button>
+            </div>
+        </form>
+        <div id="output"></div>
+
+        <script>
+            function clearFields() {
+                document.getElementById("name").value = "";
+                document.getElementById("dob").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("dobError").textContent = "";
+            }
+
+            function submitForm() {
+                var name = document.getElementById("name").value;
+                var dob = document.getElementById("dob").value;
+                var email = document.getElementById("email").value;
+
+                var today = new Date();
+                var minAge = new Date();
+                minAge.setFullYear(today.getFullYear() - 100); // Min 100 y
+                var maxAge = new Date();
+                maxAge.setFullYear(today.getFullYear() - 18); // Maxi 18 y
+
+                var enteredDob = new Date(dob);
+
+                if (enteredDob < minAge || enteredDob > maxAge) {
+                    document.getElementById("dobError").textContent = "Age should be between 18 and 100 years";
+                    return;
+                }
+
+                document.getElementById("output").innerHTML =
+                    "<p>Name: " + name + "</p>" +
+                    "<p>Date of Birth: " + dob + "</p>" +
+                    "<p>Email: " + email + "</p>";
+
+                clearFields();
+            }
+        </script>
+    </body>
+
+    </html>
